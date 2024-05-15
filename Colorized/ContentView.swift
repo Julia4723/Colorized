@@ -68,7 +68,7 @@ struct ContentView: View {
             }
             .padding()
             
-            Button("Done", action: redValide)
+            Button("Done", action: validate)
                 .alert("Wrong format", isPresented: $isPresented, actions: {}) {
                     Text("Maximum number is 255")
                 }
@@ -76,7 +76,7 @@ struct ContentView: View {
         }
     }
     
-    private func redValide() {
+    private func validate() {
         redSlider = Double(redTextField) ?? 0
         blueSlider = Double(blueTextField) ?? 0
         greenSlider = Double(greenTextField) ?? 0
