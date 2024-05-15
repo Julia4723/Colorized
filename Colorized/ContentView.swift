@@ -102,7 +102,7 @@ struct ColorSliderView: View {
     
     var body: some View {
         HStack {
-            Text("0")
+            Text(textFieldValue)
                 .font(.custom("", size: 17))
                 .foregroundStyle(.blue)
             Slider(value: $value, in: 0...255, step: 1)
