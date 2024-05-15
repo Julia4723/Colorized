@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var redSlider = Double.random(in: 0...255)
-    @State private var blueSlider = Double.random(in: 0...255)
-    @State private var greenSlider = Double.random(in: 0...255)
+    @State private var redSlider = Double.random(in: 0...255).rounded()//Округляем до целых, потому что не используем дробные значения
+    @State private var blueSlider = Double.random(in: 0...255).rounded()
+    @State private var greenSlider = Double.random(in: 0...255).rounded()
     
     @State private var redTextField = ""
     @State private var blueTextField = ""
@@ -99,13 +99,15 @@ struct ContentView: View {
 struct ColorSliderView: View {
     @Binding var value: Double
     @Binding var textFieldValue: String
+
     
     var body: some View {
         HStack {
-            Text(textFieldValue)
+            Text(value.formatted())
                 .font(.custom("", size: 17))
                 .foregroundStyle(.blue)
             Slider(value: $value, in: 0...255, step: 1)
+
                 .onChange(of: value) { newValue in
                     textFieldValue = "\(lround(newValue))"
                 }
