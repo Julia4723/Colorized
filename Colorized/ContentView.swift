@@ -105,6 +105,7 @@ struct ColorSliderView: View {
         HStack {
             Text(value.formatted())
                 .font(.custom("", size: 17))
+                .frame(width: 32, alignment: .leading)
                 .foregroundStyle(.blue)
             Slider(value: $value, in: 0...255, step: 1)
 
